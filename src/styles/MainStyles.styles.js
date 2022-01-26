@@ -4,7 +4,7 @@ export const MainWrapper = styled.div`
 	padding: 0 40px 0 40px;
 `;
 
-export const Navbar = styled.nav`
+export const NavbarWrapper = styled.nav`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

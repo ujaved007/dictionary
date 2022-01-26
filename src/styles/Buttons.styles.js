@@ -23,3 +23,10 @@ export const BtnSm = styled(BtnMd)`
 		color: red;
 	}
 `;
+
+export const AudioBtn = styled.button`
+	audio {
+		width: inherit;
+		height: inherit;
+	}
+`;

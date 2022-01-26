@@ -15,9 +15,9 @@ export const SearchField = styled.input`
 	margin-right: 30px;
 `;
 
-export const DictionaryWrapper = styled.div`
+export const DictionaryWrapper = styled.section`
 	width: inherit;
-	padding: 5px 20px 5px 20px;
+	padding: 5px 20px 30px 20px;
 	margin-top: 40px;
 	background-color: white;
 	border-radius: 20px;
@@ -29,7 +29,17 @@ export const DictionaryHeader = styled.div`
 
 export const TitleWrapper = styled.div`
 	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 	margin-bottom: -30px;
+`;
+
+export const AudioWrapper = styled.div`
+	margin-left: 20px;
+	& > audio {
+		width: 12rem;
+		display: flex;
+	}
 `;
 
 export const DictionaryHeadingMd = styled.h2`
@@ -54,8 +64,13 @@ export const DictionaryHeadingSm = styled.h3`
 
 export const LinksWrapper = styled.div`
 	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 	margin-top: -5px;
 	& > button:not(:last-child) {
 		margin-right: 8px;
+	}
+	& > button {
+		margin-bottom: 10px;
 	}
 `;

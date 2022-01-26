@@ -7,6 +7,8 @@ const GlobalStyles = createGlobalStyle`
     body {
 	background: linear-gradient(180deg, rgba(238,237,240,1),rgba(246,238,228,1),rgba(225,215,220,1));
     height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 	color: #515051;
 	font-family: "Roboto", sans-serif;
 	-webkit-font-smoothing: antialiased;
