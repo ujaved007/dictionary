@@ -1,5 +1,6 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getDefinition } from "../features/definitionSlice";
 
 import { BtnSm } from "../styles/Buttons.styles";
 import {
@@ -15,7 +16,26 @@ import {
 
 const DefinitionBody = () => {
 	const data = useSelector((state) => state.definition.data);
-	console.log(data);
+	const dispatch = useDispatch();
+
+	const handleClick = (link) => {
+		dispatch(getDefinition(link));
+	};
+
+	//displays error message if definition not found
+	if (data.title) {
+		return (
+			<DictionaryWrapper>
+				<DictionaryHeader>
+					<h1>{data.title}</h1>
+					<p>
+						{data.message} {data.resolution}
+					</p>
+				</DictionaryHeader>
+			</DictionaryWrapper>
+		);
+	}
+
 	return (
 		<>
 			{data.map((item, index) => {
@@ -24,19 +44,13 @@ const DefinitionBody = () => {
 						<DictionaryHeader>
 							<TitleWrapper>
 								<h1>{item.word}</h1>
-								{item.phonetics.map((audio, index) => {
-									return (
-										<AudioWrapper key={index}>
-											<audio controls>
-												<source src={audio.audio} type="audio/ogg" />
-												<source src={audio.audio} type="audio/mpeg" />
-												<source src={audio.audio} type="audio/mp3" />
-											</audio>
-										</AudioWrapper>
-									);
-								})}
+								<AudioWrapper>
+									{item.phonetics.map((audio, index) => {
+										return <audio key={index} controls src={audio.audio} type="audio/mp3" />;
+									})}
+								</AudioWrapper>
 							</TitleWrapper>
-							<p>/{item.phonetic}/</p>
+							<p>/${item.phonetic}/</p>
 						</DictionaryHeader>
 						{item.meanings.map((meaning, index) => {
 							return (
@@ -56,7 +70,7 @@ const DefinitionBody = () => {
 												<LinksWrapper>
 													{definitions.synonyms.map((synonym, index) => {
 														return (
-															<BtnSm className="sm-marg-right" key={index}>
+															<BtnSm className="sm-marg-right" key={index} onClick={() => handleClick(synonym)}>
 																{synonym}
 															</BtnSm>
 														);
@@ -66,7 +80,7 @@ const DefinitionBody = () => {
 												<LinksWrapper>
 													{definitions.antonyms.map((antonym, index) => {
 														return (
-															<BtnSm className="sm-marg-right" key={index}>
+															<BtnSm className="sm-marg-right" key={index} onClick={() => handleClick(antonym)}>
 																{antonym}
 															</BtnSm>
 														);
