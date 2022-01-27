@@ -16,12 +16,12 @@ import {
 
 const DefinitionBody = () => {
 	const data = useSelector((state) => state.definition.data);
-	const dispatch = useDispatch();
+	const status = useSelector((state) => state.definition.status);
 
+	const dispatch = useDispatch();
 	const handleClick = (link) => {
 		dispatch(getDefinition(link));
 	};
-
 	//displays error message if definition not found
 	if (data.title) {
 		return (
@@ -31,6 +31,16 @@ const DefinitionBody = () => {
 					<p>
 						{data.message} {data.resolution}
 					</p>
+				</DictionaryHeader>
+			</DictionaryWrapper>
+		);
+	}
+	//displays loading message
+	if (status === "loading") {
+		return (
+			<DictionaryWrapper>
+				<DictionaryHeader>
+					<h1>Loading...</h1>
 				</DictionaryHeader>
 			</DictionaryWrapper>
 		);
@@ -50,7 +60,7 @@ const DefinitionBody = () => {
 									})}
 								</AudioWrapper>
 							</TitleWrapper>
-							<p>/${item.phonetic}/</p>
+							{item.phonetic && <p>/{item.phonetic}/</p>}
 						</DictionaryHeader>
 						{item.meanings.map((meaning, index) => {
 							return (
