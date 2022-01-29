@@ -42,7 +42,7 @@ export const AudioWrapper = styled.div`
 	}
 `;
 
-export const DictionaryHeadingMd = styled.h2`
+export const DictionaryHeadingMd = styled.h1`
 	font-size: 1.2rem;
 	font-weight: 500;
 	color: ${(props) => props.theme.colors.blue}; ;
@@ -56,7 +56,7 @@ export const DictionaryDefintion = styled.ul`
 	}
 `;
 
-export const DictionaryHeadingSm = styled.h3`
+export const DictionaryHeadingSm = styled.h2`
 	font-size: 1rem;
 	font-weight: 500;
 	color: ${(props) => props.theme.colors.green};

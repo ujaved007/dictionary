@@ -56,7 +56,7 @@ const DefinitionBody = () => {
 								<h1>{item.word}</h1>
 								<AudioWrapper>
 									{item.phonetics.map((audio, index) => {
-										return <audio key={index} controls src={audio.audio} type="audio/mp3" />;
+										return audio.audio && <audio key={index} controls src={audio.audio} type="audio/mp3" />;
 									})}
 								</AudioWrapper>
 							</TitleWrapper>
@@ -65,7 +65,7 @@ const DefinitionBody = () => {
 						{item.meanings.map((meaning, index) => {
 							return (
 								<div key={index}>
-									<DictionaryHeadingMd>{meaning.partOfSpeech}:</DictionaryHeadingMd>
+									{meaning.partOfSpeech && <DictionaryHeadingMd>{meaning.partOfSpeech}:</DictionaryHeadingMd>}
 									{meaning.definitions.map((definitions, index) => {
 										return (
 											<div key={index}>
