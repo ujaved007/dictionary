@@ -2,17 +2,29 @@ import styled from "styled-components";
 
 export const SearchWrapper = styled.div`
 	display: flex;
+	@media (max-width: 425px) {
+		flex-direction: column;
+		align-items: flex-start;
+		& > button {
+			margin-top: 10px;
+		}
+	}
 `;
 
 export const SearchField = styled.input`
 	background-color: white;
-	width: 60%;
+	width: 35em;
 	font-size: 1.2rem;
-	padding: 15px 20px 15px 20px;
+	padding: 0.8em 1.5em 0.8em 1.5em;
 	border: none;
-	border-radius: 20px;
+	border-radius: 1rem;
 	color: ${(props) => props.theme.colors.black};
-	margin-right: 30px;
+	margin-right: 1.2em;
+	@media (max-width: 768px) {
+		font-size: 1rem;
+		padding: 0.8em 1.4em 0.8em 1.4em;
+		width: 88%;
+	}
 `;
 
 export const DictionaryWrapper = styled.section`
@@ -25,13 +37,19 @@ export const DictionaryWrapper = styled.section`
 
 export const DictionaryHeader = styled.div`
 	margin-bottom: 20px;
-`;
-
-export const TitleWrapper = styled.div`
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	margin-bottom: -30px;
+	@media (max-width: 425px) {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+`;
+
+export const TitleWrapper = styled.div`
+	& > h1 {
+		margin-bottom: -10px;
+	}
 `;
 
 export const AudioWrapper = styled.div`
@@ -39,6 +57,9 @@ export const AudioWrapper = styled.div`
 	& > audio {
 		width: 12rem;
 		display: flex;
+	}
+	@media (max-width: 425px) {
+		margin-left: 0px;
 	}
 `;
 

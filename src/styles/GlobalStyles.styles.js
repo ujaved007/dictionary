@@ -28,6 +28,26 @@ h3 {
 p {
     font-size: 1rem;
 }
+li {
+    font-size: 1rem;
+}
+@media (max-width: 768px) {
+    h1 {
+    font-size: 1.6rem;
+    }
+    h2 {
+    font-size: 1.2rem;
+    }
+    h3 {
+    font-size: 1rem;
+    }
+    p {
+    font-size: 0.9rem;
+    }
+    li {
+    font-size: 0.9rem;
+}
+}
     `;
 
 export default GlobalStyles;

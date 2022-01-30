@@ -2,14 +2,22 @@ import styled from "styled-components";
 
 export const BtnMd = styled.button`
 	font-size: 1.2rem;
-	padding: 10px 20px 10px 20px;
-	border-radius: 20px;
+	padding: 0.8rem 1.6rem 0.8rem 1.6rem;
+	border-radius: 1.2rem;
 	border-width: 0px;
 	background-color: ${(props) => props.theme.colors.lightGrey};
 	color: ${(props) => props.theme.colors.black};
 	&:hover {
 		background: ${(props) => props.theme.colors.darkGrey};
 		cursor: pointer;
+	}
+	@media (max-width: 768px) {
+		font-size: 1rem;
+		padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+	}
+	@media (max-width: 425px) {
+		font-size: 0.9rem;
+		padding: 0.6rem 1rem 0.6rem 1rem;
 	}
 `;
 
@@ -19,8 +27,8 @@ export const BtnSm = styled(BtnMd)`
 	padding: 5px 10px 5px 10px;
 	border-radius: 5px;
 	border-style: none;
-	.sm-marg-right {
-		color: red;
+	@media (max-width: 768px) {
+		font-size: 0.9rem;
 	}
 `;
 

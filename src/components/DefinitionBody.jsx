@@ -54,13 +54,13 @@ const DefinitionBody = () => {
 						<DictionaryHeader>
 							<TitleWrapper>
 								<h1>{item.word}</h1>
-								<AudioWrapper>
-									{item.phonetics.map((audio, index) => {
-										return audio.audio && <audio key={index} controls src={audio.audio} type="audio/mp3" />;
-									})}
-								</AudioWrapper>
+								{item.phonetic && <p>/{item.phonetic}/</p>}
 							</TitleWrapper>
-							{item.phonetic && <p>/{item.phonetic}/</p>}
+							<AudioWrapper>
+								{item.phonetics.map((audio, index) => {
+									return audio.audio && <audio key={index} controls src={audio.audio} type="audio/mp3" />;
+								})}
+							</AudioWrapper>
 						</DictionaryHeader>
 						{item.meanings.map((meaning, index) => {
 							return (
@@ -80,7 +80,7 @@ const DefinitionBody = () => {
 												<LinksWrapper>
 													{definitions.synonyms.map((synonym, index) => {
 														return (
-															<BtnSm className="sm-marg-right" key={index} onClick={() => handleClick(synonym)}>
+															<BtnSm key={index} onClick={() => handleClick(synonym)}>
 																{synonym}
 															</BtnSm>
 														);
@@ -90,7 +90,7 @@ const DefinitionBody = () => {
 												<LinksWrapper>
 													{definitions.antonyms.map((antonym, index) => {
 														return (
-															<BtnSm className="sm-marg-right" key={index} onClick={() => handleClick(antonym)}>
+															<BtnSm key={index} onClick={() => handleClick(antonym)}>
 																{antonym}
 															</BtnSm>
 														);
