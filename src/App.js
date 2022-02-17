@@ -14,7 +14,7 @@ function App() {
 					<Route element={<PrivateRoute />}>
 						<Route path="/" element={<HomePage />} />
 					</Route>
-					<Route path="login" element={<LoginPage />} />
+					<Route path="/login" element={<LoginPage />} />
 				</Routes>
 			</BrowserRouter>
 		</AuthWrapper>
