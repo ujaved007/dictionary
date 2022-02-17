@@ -44,6 +44,9 @@ export const DictionaryHeader = styled.div`
 		align-items: flex-start;
 		flex-direction: column;
 	}
+	&.center {
+		flex-direction: column;
+	}
 `;
 
 export const TitleWrapper = styled.div`

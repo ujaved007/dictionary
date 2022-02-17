@@ -26,8 +26,8 @@ const DefinitionBody = () => {
 	if (data.title) {
 		return (
 			<DictionaryWrapper>
-				<DictionaryHeader>
-					<h1>{data.title}</h1>
+				<DictionaryHeader className="center">
+					<h1>{data.title}</h1> <br />
 					<p>
 						{data.message} {data.resolution}
 					</p>
