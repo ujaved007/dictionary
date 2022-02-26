@@ -45,6 +45,7 @@ const DefinitionBody = () => {
 			</DictionaryWrapper>
 		);
 	}
+	console.log(data);
 
 	return (
 		<>
@@ -76,26 +77,34 @@ const DefinitionBody = () => {
 														{definitions.example && <span className="italics">{definitions.example}</span>}
 													</li>
 												</DictionaryDefintion>
-												{definitions.synonyms.length !== 0 && <DictionaryHeadingSm>synonyms:</DictionaryHeadingSm>}
-												<LinksWrapper>
-													{definitions.synonyms.map((synonym, index) => {
-														return (
-															<BtnSm key={index} onClick={() => handleClick(synonym)}>
-																{synonym}
-															</BtnSm>
-														);
-													})}
-												</LinksWrapper>
-												{definitions.antonyms.length !== 0 && <DictionaryHeadingSm>antonyms:</DictionaryHeadingSm>}
-												<LinksWrapper>
-													{definitions.antonyms.map((antonym, index) => {
-														return (
-															<BtnSm key={index} onClick={() => handleClick(antonym)}>
-																{antonym}
-															</BtnSm>
-														);
-													})}
-												</LinksWrapper>
+												{definitions.synonyms && (
+													<>
+														<DictionaryHeadingSm>synonyms:</DictionaryHeadingSm>
+														<LinksWrapper>
+															{definitions.synonyms.map((synonym, index) => {
+																return (
+																	<BtnSm key={index} onClick={() => handleClick(synonym)}>
+																		{synonym}
+																	</BtnSm>
+																);
+															})}
+														</LinksWrapper>
+													</>
+												)}
+												{definitions.antonyms && (
+													<>
+														<DictionaryHeadingSm>antonyms:</DictionaryHeadingSm>
+														<LinksWrapper>
+															{definitions.antonyms.map((antonym, index) => {
+																return (
+																	<BtnSm key={index} onClick={() => handleClick(antonym)}>
+																		{antonym}
+																	</BtnSm>
+																);
+															})}
+														</LinksWrapper>
+													</>
+												)}
 											</div>
 										);
 									})}
